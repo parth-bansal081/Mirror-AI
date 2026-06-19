@@ -1,0 +1,12 @@
+.card { padding: var(--space-5); display: flex; flex-direction: column; gap: var(--space-4); min-height: 200px; }
+.cardHeader { display: flex; align-items: center; justify-content: space-between; }
+.cardTitle { font-family: var(--font-display); font-size: var(--text-md); font-weight: var(--weight-semibold); color: var(--text-primary); }
+.count { font-size: var(--text-xs); color: var(--text-muted); }
+.empty { font-size: var(--text-sm); color: var(--text-muted); text-align: center; padding: var(--space-8) 0; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3); }
+.stat { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: var(--space-3); background: var(--color-surface); border-radius: var(--card-radius); }
+.statValue { font-family: var(--font-display); font-size: var(--text-xl); font-weight: var(--weight-bold); }
+.statLabel { font-size: var(--text-xs); color: var(--text-muted); text-align: center; }
+.riskiest { display: flex; flex-direction: column; gap: var(--space-1); padding: var(--space-3) var(--space-4); background: var(--color-surface); border: 1px solid var(--color-rim); border-radius: var(--card-radius); }
+.riskiestLabel { font-size: var(--text-xs); color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.riskiestValue { font-size: var(--text-sm); color: var(--mode-babysitter); font-weight: var(--weight-medium); }

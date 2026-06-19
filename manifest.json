@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "permissions": [
+    "tools.invoke",
+    "storage.read",
+    "storage.write"
+  ],
+  "required_executas": [
+    { "tool_id": "bundled:prompt-analyzer", "min_version": "1.0.0" },
+    { "tool_id": "bundled:decision-critic", "min_version": "1.0.0" },
+    { "tool_id": "bundled:agent-supervisor", "min_version": "1.0.0" },
+    { "tool_id": "bundled:learning-path", "min_version": "1.0.0" }
+  ],
+  "ui": {
+    "bundle": { "format": "static-spa", "entry": "index.html" },
+    "views": [
+      {
+        "name": "main",
+        "title": "Mirror",
+        "default": true,
+        "min_size": { "w": 900, "h": 600 },
+        "default_size": { "w": 1200, "h": 780 },
+        "max_size": { "w": 1600, "h": 1080 },
+        "icon": "icon.svg"
+      }
+    ],
+    "host_api": {
+      "tools": ["required:*"],
+      "storage": ["get", "set", "delete"],
+      "window": ["set_title", "ready"]
+    }
+  }
+}

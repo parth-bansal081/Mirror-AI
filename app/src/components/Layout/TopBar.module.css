@@ -1,0 +1,78 @@
+.topbar {
+  height: 56px;
+  background: var(--depth);
+  border-bottom: 1px solid var(--rim-soft);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  gap: 12px;
+  position: relative;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+/* Mode color indicator strip at very top of topbar */
+.topbar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--mode-primary), var(--mode-soft), transparent);
+  transition: background 400ms var(--ease-smooth);
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.breadRoot {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-family: var(--font-display);
+}
+
+.breadSep {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.breadCurrent {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--mode-primary);  /* Current mode's color */
+  transition: color 300ms;
+  font-family: var(--font-display);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.profileOrb {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 150ms;
+  border: none;
+  background: transparent;
+}
+
+.profileOrb:hover {
+  background: var(--surface);
+  color: var(--text-primary);
+}

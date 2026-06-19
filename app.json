@@ -1,0 +1,20 @@
+{
+  "slug": "mirror",
+  "name": "Mirror",
+  "version": "1.0.0",
+  "tagline": "AI that makes your AI better.",
+  "description": "Mirror is a meta-AI operating system — an AI that watches how you use AI and makes you permanently better at it.\n\n**Three modes, one brain:**\n\n- **Prompt Archaeology** — forensically analyzes why a prompt failed and generates 3 targeted rewrites\n- **Devil's Advocate** — challenges your decisions with structured adversarial analysis and a Decision Readiness Score\n- **Agent Babysitter** — supervises AI agent runs, flags drift, gates every irreversible action\n\nAll three modes share a persistent Intelligence Profile that grows smarter the longer you use it.",
+  "category": "productivity",
+  "homepage_url": "https://github.com/mirror-app",
+  "logo_url": "https://raw.githubusercontent.com/mirror-app/main/logo.png",
+  "cover_url": "https://raw.githubusercontent.com/mirror-app/main/cover.png",
+  "support_url": "https://github.com/mirror-app/issues",
+  "privacy_url": "https://github.com/mirror-app#privacy",
+  "pricing_model": "free",
+  "bundled_executas": {
+    "prompt-analyzer": { "path": "./executas/prompt-analyzer" },
+    "decision-critic": { "path": "./executas/decision-critic" },
+    "agent-supervisor": { "path": "./executas/agent-supervisor" },
+    "learning-path": { "path": "./executas/learning-path" }
+  }
+}

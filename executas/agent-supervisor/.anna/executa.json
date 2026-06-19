@@ -1,0 +1,9 @@
+{
+  "$schema": "anna-executa-identity/v1",
+  "host": "https://anna.partners",
+  "executa_id": 986,
+  "tool_id": "tool-parthbansal20-5851-agent-supervisor-76y2kr8r",
+  "slug": "agent-supervisor",
+  "executa_type": "tool",
+  "first_published_at": "2026-06-14T07:38:38.984Z"
+}

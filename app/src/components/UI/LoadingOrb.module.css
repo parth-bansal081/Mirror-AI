@@ -1,0 +1,37 @@
+.orb {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+}
+
+.p1 {
+  width: 6px;
+  height: 6px;
+  margin: -3px;
+  background: var(--color-signal);
+  animation: orbit 1.2s linear infinite;
+}
+
+.p2 {
+  width: 4px;
+  height: 4px;
+  margin: -2px;
+  background: var(--mode-archaeology);
+  animation: orbit 1.8s linear infinite reverse;
+}
+
+.p3 {
+  width: 3px;
+  height: 3px;
+  margin: -1.5px;
+  background: var(--color-valid);
+  animation: orbit 0.9s linear infinite;
+}

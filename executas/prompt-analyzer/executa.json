@@ -1,0 +1,18 @@
+{
+  "slug": "prompt-analyzer",
+  "name": "Mirror Prompt Analyzer",
+  "version": "1.0.0",
+  "executa_type": "tool",
+  "tool_id": "mirror-prompt-analyzer",
+  "type": "python",
+  "enabled": true,
+  "distribution": {
+    "active": "local",
+    "profiles": {
+      "local": {
+        "type": "local",
+        "supports_protocol": true
+      }
+    }
+  }
+}

@@ -1,0 +1,173 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Warm glass panel for challenges */
+.modePanel {
+  background: rgba(24, 24, 27, 0.8);
+  border: 1px solid var(--mode-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  backdrop-filter: blur(12px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  animation: cardAppear 400ms var(--ease-snap) both;
+}
+
+.modePanel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--mode-primary), transparent);
+  border-radius: var(--radius-full);
+  pointer-events: none;
+}
+
+.cardType {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.cardContent {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Review actions - V3 Style matching Section 11 */
+.reviewActions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.reviewBtn {
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 150ms var(--ease-snap);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+}
+
+.reviewBtnValid {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: #10B981;
+}
+
+.reviewBtnValid:hover {
+  background: rgba(16, 185, 129, 0.2);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
+}
+
+.reviewBtnValid.selected {
+  background: #10B981;
+  color: white;
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.4);
+}
+
+.reviewBtnOverblown {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.3);
+  color: #F59E0B;
+}
+
+.reviewBtnOverblown:hover {
+  background: rgba(245, 158, 11, 0.2);
+}
+
+.reviewBtnOverblown.selected {
+  background: #F59E0B;
+  color: white;
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.4);
+}
+
+.reviewBtnNa {
+  background: rgba(113, 113, 122, 0.1);
+  border-color: rgba(113, 113, 122, 0.3);
+  color: #71717A;
+}
+
+.reviewBtnNa:hover {
+  background: rgba(113, 113, 122, 0.2);
+}
+
+.reviewBtnNa.selected {
+  background: #71717A;
+  color: white;
+  box-shadow: 0 0 16px rgba(113, 113, 122, 0.4);
+}
+
+/* Counter questions */
+.questions {
+  background: var(--surface);
+  border: 1px solid var(--rim-soft);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  animation: cardAppear 400ms var(--ease-snap) both;
+}
+
+.questionsTitle {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.questionsSubtitle {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.questionsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-left: 20px;
+}
+
+.question {
+  font-size: 13px;
+  color: var(--text-primary);
+  line-height: 1.6;
+}

@@ -1,0 +1,410 @@
+.dashboardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  animation: revealUp 500ms var(--ease-snap) forwards;
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.genesisHeroCard {
+  background: var(--surface);
+  border: 1px solid rgba(217, 70, 239, 0.20);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(217, 70, 239, 0.08), var(--shadow-glow-genesis);
+  transition: all 300ms var(--ease-smooth);
+}
+
+.genesisHeroCard:hover {
+  border-color: rgba(217, 70, 239, 0.45);
+  box-shadow: 0 16px 40px rgba(217, 70, 239, 0.15), 0 0 32px rgba(217, 70, 239, 0.25);
+  transform: translateY(-2px);
+}
+
+.genesisHeroGlow {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(217, 70, 239, 0.18) 0%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+  animation: glowFloat 8s ease-in-out infinite alternate;
+}
+
+@keyframes glowFloat {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(20px) scale(1.1); }
+}
+
+.genesisHeroContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.genesisHeroBadge {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--genesis-soft);
+  background: rgba(217, 70, 239, 0.15);
+  border: 1px solid rgba(217, 70, 239, 0.3);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.05em;
+}
+
+.genesisHeroTitle {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.genesisHeroDescription {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 680px;
+}
+
+.genesisHeroBtn {
+  background: linear-gradient(135deg, var(--genesis-primary), var(--genesis-soft));
+  color: var(--text-inverse);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 13.5px;
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
+  box-shadow: 0 4px 12px rgba(217, 70, 239, 0.25);
+  transition: all 200ms;
+}
+
+.genesisHeroBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(217, 70, 239, 0.4);
+  filter: brightness(1.05);
+}
+
+.secondaryHeader {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+
+
+.heroGreeting {
+  animation: greetingAppear 600ms var(--ease-snap) forwards;
+}
+
+.greetingText {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.greetingSub {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.heroActions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.quickActionCard {
+  background: var(--surface);
+  border: 1px solid var(--rim-soft);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  cursor: pointer;
+  transition: all 200ms var(--ease-smooth);
+  text-decoration: none;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.quickActionCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--card-color);
+  opacity: 0;
+  transition: opacity 200ms;
+  z-index: 0;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.quickActionCard:hover {
+  border-color: var(--card-color, var(--mode-border));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.quickActionCard:hover::before {
+  opacity: 0.04;
+}
+
+.quickActionIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.quickActionLabel {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  position: relative;
+  z-index: 1;
+}
+
+.quickActionDesc {
+  font-size: 12px;
+  color: var(--text-muted);
+  position: relative;
+  z-index: 1;
+}
+
+/* Stats Row */
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.statCard {
+  background: var(--surface);
+  border: 1px solid var(--rim-soft);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  animation: cardAppear 400ms var(--ease-snap) forwards;
+}
+
+.statCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--stat-color);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.statValue {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.statLabel {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.statTrend {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--success);
+  background: rgba(16, 185, 129, 0.1);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+/* Data Panels (Radar & Feed) */
+.dataGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 16px;
+}
+
+.chartPanel, .feedPanel {
+  background: rgba(24, 24, 27, 0.8);
+  border: 1px solid var(--rim-soft);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+  backdrop-filter: blur(12px);
+  position: relative;
+}
+
+.chartPanel::before, .feedPanel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rim), transparent);
+  border-radius: var(--radius-full);
+  pointer-events: none;
+}
+
+.panelTitle {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+.radarContainer {
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radarGrid {
+  fill: none;
+  stroke: var(--rim);
+  stroke-width: 1px;
+  opacity: 0.4;
+}
+
+.radarAxis {
+  stroke: var(--rim);
+  stroke-width: 1px;
+  opacity: 0.3;
+}
+
+.radarArea {
+  fill: var(--arch-bg);
+  stroke: var(--arch-primary);
+  stroke-width: 1.5px;
+  transition: all 400ms var(--ease-smooth);
+}
+
+.radarPoint {
+  fill: var(--arch-soft);
+  stroke: var(--arch-primary);
+  stroke-width: 1.5px;
+  transition: all 400ms var(--ease-smooth);
+}
+
+.radarLabel {
+  font-family: var(--font-body);
+  font-size: 10px;
+  fill: var(--text-secondary);
+  font-weight: 500;
+}
+
+.feedList {
+  display: flex;
+  flex-direction: column;
+}
+
+.emptyFeed {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 40px 0;
+  font-style: italic;
+}
+
+.activityItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rim-soft);
+  animation: revealUp 400ms var(--ease-snap) both;
+}
+
+.activityItem:last-child {
+  border-bottom: none;
+}
+
+.activityModeDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.activityTitle {
+  flex: 1;
+  font-size: 13px;
+  color: var(--text-primary);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.activityTime {
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.activityScore {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: var(--surface-hi);
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+  .heroActions {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .statsRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .dataGrid {
+    grid-template-columns: 1fr;
+  }
+}

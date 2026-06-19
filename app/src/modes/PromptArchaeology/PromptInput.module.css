@@ -1,0 +1,126 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.stepLabel {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.12em;
+  color: var(--mode-primary);
+  text-transform: uppercase;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.label {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  color: var(--text-secondary);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.textarea {
+  width: 100%;
+  background: var(--void);
+  border: 1px solid var(--rim);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.7;
+  padding: 14px 16px;
+  resize: vertical;
+  transition: border-color 200ms, box-shadow 200ms;
+  box-sizing: border-box;
+  min-height: 180px;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--mode-primary);
+  box-shadow: 0 0 0 3px var(--mode-bg), 0 0 20px var(--mode-glow);
+}
+
+.textarea::placeholder {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.textarea:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+}
+
+.btnAnalyze {
+  background: var(--mode-primary);
+  color: var(--text-inverse);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 32px;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 200ms var(--ease-smooth);
+  letter-spacing: 0.01em;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* Shine sweep on hover */
+.btnAnalyze::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transition: left 400ms;
+}
+
+.btnAnalyze:hover:not(:disabled)::after {
+  left: 100%;
+}
+
+.btnAnalyze:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px var(--mode-glow);
+}
+
+.btnAnalyze:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.btnAnalyze:disabled {
+  background: var(--surface-hi);
+  color: var(--text-muted);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+.btnAnalyze:disabled::after {
+  display: none;
+}

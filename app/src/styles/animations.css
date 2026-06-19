@@ -1,0 +1,156 @@
+/* ============================================================
+ * MIRROR — Keyframe Animations
+ * All @keyframes definitions in one file.
+ * ============================================================ */
+
+/* ── PARTICLE FLOAT ─────────────────────────── */
+@keyframes particleFloat {
+  0%   { transform: translateY(0px) translateX(0px) scale(1); opacity: 0.6; }
+  33%  { transform: translateY(-20px) translateX(10px) scale(1.1); opacity: 1; }
+  66%  { transform: translateY(-10px) translateX(-8px) scale(0.9); opacity: 0.7; }
+  100% { transform: translateY(0px) translateX(0px) scale(1); opacity: 0.6; }
+}
+
+/* ── MODE GLOW PULSE ────────────────────────── */
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px var(--mode-glow), 0 0 40px transparent; }
+  50%       { box-shadow: 0 0 30px var(--mode-glow), 0 0 60px var(--mode-glow); }
+}
+
+/* ── SLIDE IN FROM RIGHT (mode transition) ─── */
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── SLIDE OUT TO LEFT (mode transition) ────── */
+@keyframes slideOutLeft {
+  from { opacity: 1; transform: translateX(0); }
+  to   { opacity: 0; transform: translateX(-40px); }
+}
+
+/* ── CONTENT REVEAL ─────────────────────────── */
+@keyframes revealUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── CARD APPEAR ────────────────────────────── */
+@keyframes cardAppear {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── BAR FILL ───────────────────────────────── */
+@keyframes barFill {
+  from { width: 0%; }
+  to   { width: var(--target-width); }
+}
+
+/* ── FLOATING ORB (background decoration) ─── */
+@keyframes floatOrb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(30px, -20px) scale(1.05); }
+  66%       { transform: translate(-20px, 15px) scale(0.95); }
+}
+
+/* ── SHIMMER (loading state) ────────────────── */
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to   { background-position: 200% 0; }
+}
+
+/* ── STEP REVEAL ────────────────────────────── */
+@keyframes stepReveal {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── CHALLENGE CARD SLIDE ───────────────────── */
+@keyframes challengeSlide {
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── GREETING APPEAR ────────────────────────── */
+@keyframes greetingAppear {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── IRREVERSIBLE GATE SLAM ─────────────────── */
+@keyframes gateSlamIn {
+  from { opacity: 0; transform: scale(1.05); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ── SIDEBAR NAV INDICATOR ──────────────────── */
+@keyframes indicatorSlide {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
+/* ── TOOLTIP APPEAR ─────────────────────────── */
+@keyframes tooltipAppear {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── RETAINED OLD KEYFRAMES STILL REFERENCED ── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes cardSlide {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes overlayFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes stepPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.8); }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(18px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(18px) rotate(-360deg); }
+}
+
+@keyframes signalPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--color-signal-glow); }
+  50%       { opacity: 0.7; box-shadow: 0 0 0 4px transparent; }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes dangerFlash {
+  0%, 100% { border-color: rgba(255, 92, 92, 0.3); }
+  50%       { border-color: rgba(255, 92, 92, 0.6); }
+}
+
+@keyframes modeFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── REDUCED MOTION OVERRIDE ─────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

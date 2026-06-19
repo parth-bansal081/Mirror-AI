@@ -1,0 +1,7 @@
+{
+  "$schema": "anna-app-identity/v1",
+  "host": "https://anna.partners",
+  "app_id": 13,
+  "slug": "mirror",
+  "first_published_at": "2026-06-18T16:24:41.419Z"
+}

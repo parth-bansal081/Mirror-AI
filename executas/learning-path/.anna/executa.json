@@ -1,0 +1,9 @@
+{
+  "$schema": "anna-executa-identity/v1",
+  "host": "https://anna.partners",
+  "executa_id": 1009,
+  "tool_id": "tool-parthbansal20-5851-learning-path-wyh42drj",
+  "slug": "learning-path",
+  "executa_type": "tool",
+  "first_published_at": "2026-06-18T16:24:39.944Z"
+}

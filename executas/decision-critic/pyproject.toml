@@ -1,0 +1,18 @@
+[project]
+name = "mirror-decision-critic"
+version = "1.0.0"
+description = "Mirror Devil's Advocate executa — adversarial decision analysis"
+requires-python = ">=3.11"
+dependencies = [
+    "httpx>=0.27.0",
+]
+
+[project.scripts]
+mirror-decision-critic = "decision_critic_plugin:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]

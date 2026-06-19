@@ -1,0 +1,14 @@
+{
+  "slug": "project-genesis",
+  "name": "Mirror Project Genesis",
+  "version": "1.0.0",
+  "executa_type": "tool",
+  "tool_id": "bundled:project-genesis",
+  "type": "python",
+  "enabled": true,
+  "distribution": {
+    "profiles": {
+      "local": { "type": "local" }
+    }
+  }
+}

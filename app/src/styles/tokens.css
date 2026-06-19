@@ -1,0 +1,193 @@
+:root {
+  /* ── BASE ─────────────────────────────────────────── */
+  --void:          #09090B;   /* deepest background */
+  --depth:         #0F0F12;   /* sidebar, panels */
+  --surface:       #18181B;   /* card backgrounds */
+  --surface-hi:    #27272A;   /* hover states */
+  --rim:           #3F3F46;   /* borders */
+  --rim-soft:      rgba(255,255,255,0.06);
+
+  /* ── MODE COLORS — each mode owns its palette ─────── */
+
+  /* Prompt Archaeology — Deep Violet */
+  --arch-primary:  #8B5CF6;
+  --arch-soft:     #A78BFA;
+  --arch-bg:       rgba(139, 92, 246, 0.08);
+  --arch-border:   rgba(139, 92, 246, 0.25);
+  --arch-glow:     rgba(139, 92, 246, 0.4);
+
+  /* Devil's Advocate — Burning Amber */
+  --devil-primary: #F59E0B;
+  --devil-soft:    #FCD34D;
+  --devil-bg:      rgba(245, 158, 11, 0.08);
+  --devil-border:  rgba(245, 158, 11, 0.25);
+  --devil-glow:    rgba(245, 158, 11, 0.4);
+
+  /* Agent Babysitter — Electric Cyan */
+  --baby-primary:  #06B6D4;
+  --baby-soft:     #67E8F9;
+  --baby-bg:       rgba(6, 182, 212, 0.08);
+  --baby-border:   rgba(6, 182, 212, 0.25);
+  --baby-glow:     rgba(6, 182, 212, 0.4);
+
+  /* Learning Path — Emerald */
+  --learn-primary: #10B981;
+  --learn-soft:    #6EE7B7;
+  --learn-bg:      rgba(16, 185, 129, 0.08);
+  --learn-border:  rgba(16, 185, 129, 0.25);
+  --learn-glow:    rgba(16, 185, 129, 0.4);
+
+  /* Profile / Dashboard — Warm Rose Gold */
+  --profile-primary: #F43F5E;
+  --profile-soft:    #FB7185;
+  --profile-bg:      rgba(244, 63, 94, 0.08);
+  --profile-border:  rgba(244, 63, 94, 0.25);
+  --profile-glow:    rgba(244, 63, 94, 0.4);
+
+  /* Project Genesis — Fuchsia */
+  --genesis-primary: #D946EF;
+  --genesis-soft:    #F472B6;
+  --genesis-bg:      rgba(217, 70, 239, 0.08);
+  --genesis-border:  rgba(217, 70, 239, 0.25);
+  --genesis-glow:    rgba(217, 70, 239, 0.4);
+  --genesis-color:   #D946EF;
+  --genesis-wash:    rgba(217, 70, 239, 0.04);
+  --genesis-text:    #F5D0FE;
+  --shadow-glow-genesis: 0 0 24px rgba(217, 70, 239, 0.35);
+
+  /* ── SEMANTIC ─────────────────────────────────────── */
+  --success:       #10B981;
+  --warning:       #F59E0B;
+  --danger:        #EF4444;
+  --neutral:       #71717A;
+
+  /* ── TEXT ────────────────────────────────────────── */
+  --text-primary:   #FAFAFA;
+  --text-secondary: #A1A1AA;
+  --text-muted:     #52525B;
+  --text-inverse:   #09090B;
+
+  /* ── TYPOGRAPHY ──────────────────────────────────── */
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+
+  /* ── SPACING ─────────────────────────────────────── */
+  --space-1: 4px;   --space-2: 8px;   --space-3: 12px;
+  --space-4: 16px;  --space-5: 20px;  --space-6: 24px;
+  --space-8: 32px;  --space-10: 40px; --space-12: 48px;
+  --space-16: 64px;
+
+  /* ── RADII ───────────────────────────────────────── */
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  16px;
+  --radius-xl:  24px;
+  --radius-full: 9999px;
+
+  /* ── SHADOWS ─────────────────────────────────────── */
+  --shadow-sm:  0 1px 3px rgba(0,0,0,0.4);
+  --shadow-md:  0 4px 16px rgba(0,0,0,0.5);
+  --shadow-lg:  0 8px 32px rgba(0,0,0,0.6);
+
+  /* ── ACTIVE MODE (set dynamically via JS on mode switch) ── */
+  --mode-primary:  var(--arch-primary);
+  --mode-soft:     var(--arch-soft);
+  --mode-bg:       var(--arch-bg);
+  --mode-border:   var(--arch-border);
+  --mode-glow:     var(--arch-glow);
+
+  /* ── TRANSITIONS ─────────────────────────────────── */
+  --ease-snap:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth:  cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce:  cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-reveal:  var(--ease-snap);
+  --ease-score:   var(--ease-snap);
+  --ease-transition: var(--ease-smooth);
+
+  /* ── BACKWARD-COMPATIBLE ALIASES ── */
+  --color-void:        var(--void);
+  --color-depth:       var(--depth);
+  --color-surface:     var(--surface);
+  --color-surface-hi:  var(--surface-hi);
+  --color-rim:         var(--rim);
+  --glass-bg:          rgba(24, 24, 27, 0.8);
+  --glass-border:      var(--rim-soft);
+  --glass-blur:        blur(12px);
+  --glass-rim:         var(--rim-soft);
+  --color-signal:      var(--mode-primary);
+  --color-signal-dim:  var(--mode-soft);
+  --color-signal-glow: var(--mode-glow);
+  --color-valid:       var(--success);
+  --color-warn:        var(--warning);
+  --color-danger:      var(--danger);
+  --color-neutral:     var(--neutral);
+  --mode-archaeology:  var(--arch-primary);
+  --mode-advocate:     var(--devil-primary);
+  --mode-babysitter:   var(--baby-primary);
+  --mode-learning:     var(--learn-primary);
+  --mode-learning-glow: var(--learn-glow);
+  --mode-profile:      var(--profile-primary);
+  --sidebar-width:     240px;
+  --topbar-height:     56px;
+  --panel-radius:      var(--radius-xl);
+  --card-radius:       var(--radius-lg);
+  --input-radius:      var(--radius-md);
+  --button-radius:     var(--radius-md);
+  --shadow-panel:      var(--shadow-lg);
+  --shadow-card:       var(--shadow-md);
+  --shadow-signal:     0 0 20px var(--mode-glow);
+  --shadow-input:      inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+/* ── ACTIVE MODE OVERRIDES ON BODY ── */
+body[data-mode="archaeology"] {
+  --mode-primary: var(--arch-primary);
+  --mode-soft:    var(--arch-soft);
+  --mode-bg:      var(--arch-bg);
+  --mode-border:  var(--arch-border);
+  --mode-glow:    var(--arch-glow);
+}
+body[data-mode="advocate"] {
+  --mode-primary: var(--devil-primary);
+  --mode-soft:    var(--devil-soft);
+  --mode-bg:      var(--devil-bg);
+  --mode-border:  var(--devil-border);
+  --mode-glow:    var(--devil-glow);
+}
+body[data-mode="babysitter"] {
+  --mode-primary: var(--baby-primary);
+  --mode-soft:    var(--baby-soft);
+  --mode-bg:      var(--baby-bg);
+  --mode-border:  var(--baby-border);
+  --mode-glow:    var(--baby-glow);
+}
+body[data-mode="learning"] {
+  --mode-primary: var(--learn-primary);
+  --mode-soft:    var(--learn-soft);
+  --mode-bg:      var(--learn-bg);
+  --mode-border:  var(--learn-border);
+  --mode-glow:    var(--learn-glow);
+}
+body[data-mode="profile"] {
+  --mode-primary: var(--profile-primary);
+  --mode-soft:    var(--profile-soft);
+  --mode-bg:      var(--profile-bg);
+  --mode-border:  var(--profile-border);
+  --mode-glow:    var(--profile-glow);
+}
+body[data-mode="dashboard"] {
+  --mode-primary: var(--profile-primary);
+  --mode-soft:    var(--profile-soft);
+  --mode-bg:      var(--profile-bg);
+  --mode-border:  var(--profile-border);
+  --mode-glow:    var(--profile-glow);
+}
+body[data-mode="genesis"] {
+  --mode-primary: var(--genesis-primary);
+  --mode-soft:    var(--genesis-soft);
+  --mode-bg:      var(--genesis-bg);
+  --mode-border:  var(--genesis-border);
+  --mode-glow:    var(--genesis-glow);
+}
+

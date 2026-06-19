@@ -1,0 +1,304 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  animation: fadeIn 300ms var(--ease-reveal);
+}
+
+.header {
+  background: var(--color-surface);
+  border: 1px solid var(--color-rim);
+  border-radius: var(--panel-radius);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  box-shadow: var(--shadow-panel);
+}
+
+.headerTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.metaGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+}
+
+.metaItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.metaLabel {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.metaValue {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+}
+
+.actionBar {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-2);
+}
+
+.btnPrimary {
+  background: var(--mode-learning);
+  color: var(--text-inverse);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  padding: 10px 24px;
+  border-radius: var(--button-radius);
+  border: none;
+  cursor: pointer;
+  transition: all 150ms var(--ease-snap);
+}
+
+.btnPrimary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+}
+
+.btnSecondary {
+  background: var(--color-surface-hi);
+  color: var(--text-primary);
+  border: 1px solid var(--color-rim);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  padding: 10px 20px;
+  border-radius: var(--button-radius);
+  cursor: pointer;
+  transition: all 150ms var(--ease-snap);
+}
+
+.btnSecondary:hover {
+  background: var(--color-rim);
+  border-color: var(--text-secondary);
+}
+
+.btnActive {
+  background: var(--mode-learning-glow);
+  border-color: var(--mode-learning);
+  color: var(--mode-learning);
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  position: relative;
+  padding-left: var(--space-4);
+}
+
+/* Vertical line connecting all weeks */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 110px;
+  top: 24px;
+  bottom: 24px;
+  width: 2px;
+  background: var(--color-rim);
+  z-index: 1;
+}
+
+.weekGroup {
+  display: grid;
+  grid-template-columns: 80px 40px 1fr;
+  align-items: flex-start;
+  position: relative;
+  z-index: 2;
+}
+
+.weekLabelCol {
+  padding-top: var(--space-3);
+  text-align: right;
+}
+
+.weekLabel {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.weekLabelActive {
+  color: var(--mode-learning);
+}
+
+.lineCol {
+  display: flex;
+  justify-content: center;
+  padding-top: var(--space-3.5);
+}
+
+.lineNode {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-rim);
+  border: 2px solid var(--color-depth);
+  transition: all 300ms var(--ease-snap);
+  z-index: 3;
+}
+
+.lineNodeActive {
+  background: var(--mode-learning);
+  box-shadow: 0 0 10px var(--mode-learning);
+  border-color: var(--color-depth);
+}
+
+.lineNodeCompleted {
+  background: var(--color-neutral);
+  border-color: var(--color-depth);
+}
+
+.cardsCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.weekTitle {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-1);
+}
+
+.topicCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-rim);
+  border-radius: var(--card-radius);
+  padding: var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  transition: all 200ms var(--ease-snap);
+}
+
+.topicCardActive {
+  border-color: var(--mode-learning);
+  background: linear-gradient(to right, rgba(16, 185, 129, 0.04), var(--color-surface));
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.topicCardCompleted {
+  opacity: 0.55;
+  background: var(--color-depth);
+}
+
+.topicCard:hover {
+  border-color: var(--text-muted);
+}
+
+.topicCardActive:hover {
+  border-color: var(--mode-learning);
+}
+
+.topicContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  flex: 1;
+}
+
+.topicTitle {
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  color: var(--text-primary);
+}
+
+.topicTitleCompleted {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+}
+
+.topicMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.badge {
+  font-size: var(--text-xs);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: var(--weight-semibold);
+}
+
+.badgeKnown {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--mode-learning);
+}
+
+.badgeCurrent {
+  background: rgba(108, 127, 255, 0.12);
+  color: var(--color-signal);
+}
+
+.topicActions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.actionBtn {
+  background: var(--color-surface-hi);
+  border: 1px solid var(--color-rim);
+  color: var(--text-secondary);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 150ms var(--ease-snap);
+  font-size: var(--text-sm);
+}
+
+.actionBtn:hover {
+  border-color: var(--text-secondary);
+  color: var(--text-primary);
+  background: var(--color-rim);
+}
+
+.actionBtnActive {
+  background: var(--mode-learning);
+  color: var(--text-inverse);
+  border-color: var(--mode-learning);
+}
+
+.actionBtnActive:hover {
+  background: var(--mode-learning);
+  color: var(--text-inverse);
+  filter: brightness(1.1);
+}
+
+.reorderControls {
+  display: flex;
+  gap: var(--space-1);
+}

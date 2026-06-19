@@ -1,0 +1,18 @@
+{
+  "slug": "learning-path",
+  "name": "Mirror Learning Path",
+  "version": "1.0.0",
+  "executa_type": "tool",
+  "tool_id": "bundled-learning-path",
+  "type": "python",
+  "enabled": true,
+  "distribution": {
+    "active": "local",
+    "profiles": {
+      "local": {
+        "type": "local",
+        "supports_protocol": true
+      }
+    }
+  }
+}

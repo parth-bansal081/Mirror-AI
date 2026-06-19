@@ -1,0 +1,18 @@
+{
+  "slug": "decision-critic",
+  "name": "Mirror Decision Critic",
+  "version": "1.0.0",
+  "executa_type": "tool",
+  "tool_id": "mirror-decision-critic",
+  "type": "python",
+  "enabled": true,
+  "distribution": {
+    "active": "local",
+    "profiles": {
+      "local": {
+        "type": "local",
+        "supports_protocol": true
+      }
+    }
+  }
+}

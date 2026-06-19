@@ -1,0 +1,360 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  min-height: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-4);
+  border-bottom: 1px solid var(--color-rim);
+  padding-bottom: var(--space-4);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  margin: 0 0 var(--space-1) 0;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.errorBanner {
+  background: rgba(255, 92, 92, 0.08);
+  border: 1px solid rgba(255, 92, 92, 0.2);
+  border-radius: var(--card-radius);
+  color: var(--color-danger);
+  padding: var(--space-4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--text-sm);
+}
+
+.errorDismiss {
+  background: none;
+  border: none;
+  color: var(--color-danger);
+  cursor: pointer;
+  font-size: var(--text-base);
+}
+
+.inputForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.formLabel {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.textarea {
+  background: var(--color-surface);
+  border: 1px solid var(--color-rim);
+  border-radius: var(--input-radius);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  padding: var(--space-4);
+  width: 100%;
+  resize: vertical;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--mode-learning);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2.5);
+}
+
+.radioOption {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-rim);
+  border-radius: var(--card-radius);
+  padding: var(--space-3.5) var(--space-4);
+  cursor: pointer;
+  transition: all 150ms var(--ease-snap);
+}
+
+.radioOption:hover {
+  border-color: var(--text-muted);
+}
+
+.radioOptionActive {
+  border-color: var(--mode-learning);
+  background: var(--mode-learning-glow);
+}
+
+.radioInput {
+  accent-color: var(--mode-learning);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.radioLabel {
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+}
+
+.assessmentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  animation: fadeIn 300ms var(--ease-reveal);
+}
+
+.assessmentCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-rim);
+  border-radius: var(--panel-radius);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-panel);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-rim);
+  padding-bottom: var(--space-3);
+}
+
+.progressText {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.questionText {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+  line-height: var(--leading-snug);
+  margin-bottom: var(--space-4);
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.btnPrimary {
+  background: var(--mode-learning);
+  color: var(--text-inverse);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  padding: 10px 24px;
+  border-radius: var(--button-radius);
+  border: none;
+  cursor: pointer;
+  transition: all 150ms var(--ease-snap);
+}
+
+.btnPrimary:hover:not(:disabled) {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+}
+
+.btnPrimary:disabled {
+  background: var(--color-surface-hi);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.btnSecondary {
+  background: var(--color-surface-hi);
+  color: var(--text-primary);
+  border: 1px solid var(--color-rim);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  padding: 10px 20px;
+  border-radius: var(--button-radius);
+  cursor: pointer;
+  transition: all 150ms var(--ease-snap);
+}
+
+.btnSecondary:hover {
+  background: var(--color-rim);
+}
+
+.checkpointContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  animation: fadeIn 300ms var(--ease-reveal);
+}
+
+.checkpointHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkpointTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--text-primary);
+}
+
+.checkpointGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.checkpointCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-rim);
+  border-radius: var(--card-radius);
+  padding: var(--space-5);
+}
+
+.checkpointQ {
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.evalPanel {
+  margin-top: var(--space-4);
+  padding: var(--space-4);
+  border-radius: var(--card-radius);
+  border: 1px solid var(--color-rim);
+}
+
+.evalCorrect {
+  background: rgba(62, 207, 164, 0.08);
+  border-color: rgba(62, 207, 164, 0.2);
+  color: var(--color-valid);
+}
+
+.evalPartial {
+  background: rgba(245, 166, 35, 0.08);
+  border-color: rgba(245, 166, 35, 0.2);
+  color: var(--color-warn);
+}
+
+.evalIncorrect {
+  background: rgba(255, 92, 92, 0.08);
+  border-color: rgba(255, 92, 92, 0.2);
+  color: var(--color-danger);
+}
+
+.evalStatus {
+  font-weight: var(--weight-bold);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-1);
+}
+
+.evalExplanation {
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.evalReview {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.analyzingHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.analyzingText {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--text-primary);
+}
+
+.sessionBadge {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  color: var(--mode-learning);
+  background: var(--mode-learning-glow);
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.02em;
+}
+
+.summaryPanel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-rim);
+  border-radius: var(--panel-radius);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.summaryTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--mode-learning);
+}
+
+.summaryText {
+  font-size: var(--text-base);
+  color: var(--text-primary);
+  line-height: var(--leading-relaxed);
+}
+
+.summaryList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.summaryItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2.5);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.summaryItemDot {
+  color: var(--mode-learning);
+  font-weight: bold;
+}

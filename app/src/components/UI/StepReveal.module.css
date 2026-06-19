@@ -1,0 +1,96 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.step {
+  display: flex;
+  gap: var(--space-4);
+  opacity: 0;
+}
+
+.stepVisible {
+  animation: stepReveal 400ms var(--ease-reveal) forwards;
+}
+
+.stepLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 16px;
+  flex-shrink: 0;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 3px;
+  transition: background 200ms;
+}
+
+.dotActive {
+  animation: stepPulse 1.2s ease infinite;
+}
+
+.dotComplete {
+  /* accent color set inline */
+}
+
+.dotPending {
+  background: var(--color-rim);
+}
+
+.connector {
+  width: 1px;
+  flex: 1;
+  background: var(--color-rim);
+  margin: var(--space-2) 0;
+  min-height: 16px;
+  transition: background 300ms;
+}
+
+.connectorComplete {
+  background: var(--color-signal-dim);
+}
+
+.stepBody {
+  padding-bottom: var(--space-5);
+  flex: 1;
+  min-width: 0;
+}
+
+.stepHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 18px;
+}
+
+.stepLabel {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  transition: color 150ms;
+}
+
+.stepLabelActive {
+  /* color set inline with accentColor */
+}
+
+.stepLabelComplete {
+  color: var(--text-primary);
+}
+
+.stepLabelPending {
+  color: var(--text-muted);
+}
+
+.stepContent {
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+  animation: fadeIn 300ms var(--ease-reveal) forwards;
+}

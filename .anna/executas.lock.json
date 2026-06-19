@@ -1,0 +1,26 @@
+{
+  "$schema": "anna-executas-lock/v1",
+  "host": "https://anna.partners",
+  "executas": {
+    "prompt-analyzer": {
+      "tool_id": "tool-parthbansal20-5851-prompt-analyzer-m9fex7sf",
+      "path": "./executas/prompt-analyzer",
+      "source": "published"
+    },
+    "decision-critic": {
+      "tool_id": "tool-parthbansal20-5851-decision-critic-b2r4yr54",
+      "path": "./executas/decision-critic",
+      "source": "published"
+    },
+    "agent-supervisor": {
+      "tool_id": "tool-parthbansal20-5851-agent-supervisor-76y2kr8r",
+      "path": "./executas/agent-supervisor",
+      "source": "published"
+    },
+    "learning-path": {
+      "tool_id": "tool-parthbansal20-5851-learning-path-wyh42drj",
+      "path": "./executas/learning-path",
+      "source": "published"
+    }
+  }
+}
