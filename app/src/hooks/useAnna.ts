@@ -14,6 +14,7 @@ const TOOL_IDS = {
   AGENT_SUPERVISOR: 'mirror-agent-supervisor',
   LEARNING_PATH: 'bundled-learning-path',
   PROJECT_GENESIS: 'bundled:project-genesis',
+  DOC_BRUTALIST: 'bundled:doc-brutalist',
 } as const;
 
 type ToolId = (typeof TOOL_IDS)[keyof typeof TOOL_IDS];
@@ -66,6 +67,8 @@ export async function invokeAnna<T>(
       resolvedToolId = toolIdsMap['learning-path'];
     } else if (toolId === TOOL_IDS.PROJECT_GENESIS && toolIdsMap['project-genesis']) {
       resolvedToolId = toolIdsMap['project-genesis'];
+    } else if (toolId === TOOL_IDS.DOC_BRUTALIST && toolIdsMap['doc-brutalist']) {
+      resolvedToolId = toolIdsMap['doc-brutalist'];
     }
   }
 

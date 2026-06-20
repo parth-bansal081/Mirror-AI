@@ -9,6 +9,7 @@ import {
   PromptLibrary,
   LearningProgress,
   GenesisSession,
+  BrutalistSession,
   emptyPromptDNA,
   emptyDecisionMap,
   emptyAgentLog,
@@ -34,6 +35,7 @@ interface ProfileStore extends AppState {
   setCurrentAgentSession: (session: Partial<AgentSession> | null) => void;
   setCurrentLearningSession: (session: Partial<LearningProgress> | null) => void;
   setCurrentGenesisSession: (session: Partial<GenesisSession> | null) => void;
+  setCurrentBrutalistSession: (session: Partial<BrutalistSession> | null) => void;
 
   // Mode navigation
   setActiveMode: (mode: ModeType) => void;
@@ -63,6 +65,7 @@ export const useProfileStore = create<ProfileStore>((set) => ({
   currentAgentSession: null,
   currentLearningSession: null,
   currentGenesisSession: null,
+  currentBrutalistSession: null,
   activeMode: 'genesis',
   isAnalyzing: false,
   analysisStep: 0,
@@ -81,6 +84,7 @@ export const useProfileStore = create<ProfileStore>((set) => ({
   setCurrentAgentSession: (currentAgentSession) => set({ currentAgentSession }),
   setCurrentLearningSession: (currentLearningSession) => set({ currentLearningSession }),
   setCurrentGenesisSession: (currentGenesisSession) => set({ currentGenesisSession }),
+  setCurrentBrutalistSession: (currentBrutalistSession) => set({ currentBrutalistSession }),
 
   // Mode — clear current sessions when switching modes
   setActiveMode: (activeMode) =>

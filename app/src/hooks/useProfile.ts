@@ -22,6 +22,7 @@ import {
   LearningProgress,
   PromptRecord,
   GenesisSession,
+  BrutalistSession,
 } from '../store/types';
 import { storageGet, storageSetJSON, storageGetJSON } from './useAnna';
 
@@ -37,6 +38,7 @@ export const APS_KEYS = {
   SESSION_PREFIX:    'mirror:sessions:',
   LEARNING_PROGRESS: 'mirror:profile:learning_progress',
   GENESIS_SESSIONS:  'mirror:genesis:sessions',
+  BRUTALIST_SESSIONS: 'mirror:brutalist:sessions',
 } as const;
 
 // ── Load profile on app start ────────────────────────────────
@@ -156,6 +158,27 @@ export async function saveGenesisSession(
     updated = [session, ...sessions];
   }
   await storageSetJSON(APS_KEYS.GENESIS_SESSIONS, updated);
+  return updated;
+}
+
+// ── Save/Get Brutalist Sessions ──────────────────────────────
+export async function loadBrutalistSessions(): Promise<BrutalistSession[]> {
+  return storageGetJSON<BrutalistSession[]>(APS_KEYS.BRUTALIST_SESSIONS, []);
+}
+
+export async function saveBrutalistSession(
+  session: BrutalistSession
+): Promise<BrutalistSession[]> {
+  const sessions = await loadBrutalistSessions();
+  const index = sessions.findIndex((s) => s.id === session.id);
+  let updated: BrutalistSession[];
+  if (index >= 0) {
+    updated = [...sessions];
+    updated[index] = session;
+  } else {
+    updated = [session, ...sessions];
+  }
+  await storageSetJSON(APS_KEYS.BRUTALIST_SESSIONS, updated);
   return updated;
 }
 

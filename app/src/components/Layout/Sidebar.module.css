@@ -240,3 +240,40 @@
   transition: all 1.2s ease-in-out;
 }
 
+/* Doc Brutalist Custom Sidebar Nav Item */
+.brutalistNavItem {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.04), rgba(220, 38, 38, 0.02));
+  border: 1px solid rgba(239, 68, 68, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.brutalistNavItem:hover {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.12), rgba(220, 38, 38, 0.06)) !important;
+  border-color: rgba(239, 68, 68, 0.35) !important;
+  box-shadow: 0 0 14px rgba(239, 68, 68, 0.25);
+}
+
+.brutalistNavItemActive {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(220, 38, 38, 0.08)) !important;
+  border-color: rgba(239, 68, 68, 0.5) !important;
+}
+
+.brutalistNavItem::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
+.brutalistNavItem:hover::after {
+  left: 150%;
+  transition: all 1.2s ease-in-out;
+}
+
+

@@ -55,6 +55,14 @@
   --genesis-text:    #F5D0FE;
   --shadow-glow-genesis: 0 0 24px rgba(217, 70, 239, 0.35);
 
+  /* Doc Brutalist — Harsh Red */
+  --brutalist:       #EF4444;   /* Harsh red — brutal, honest, cuts through */
+  --brutalist-soft:  #DC2626;
+  --brutalist-glow:  rgba(239, 68, 68, 0.20);
+  --brutalist-wash:  rgba(239, 68, 68, 0.06);
+  --brutalist-text:  #FCA5A5;
+  --shadow-glow-brutalist: 0 0 30px rgba(239, 68, 68, 0.25);
+
   /* ── SEMANTIC ─────────────────────────────────────── */
   --success:       #10B981;
   --warning:       #F59E0B;
@@ -190,4 +198,17 @@ body[data-mode="genesis"] {
   --mode-border:  var(--genesis-border);
   --mode-glow:    var(--genesis-glow);
 }
+body[data-mode="doc-brutalist"], body.mode-brutalist {
+  --mode-primary: var(--brutalist);
+  --mode-soft:    var(--brutalist-soft);
+  --mode-bg:      var(--brutalist-wash);
+  --mode-border:  var(--brutalist-glow);
+  --mode-glow:    var(--brutalist-glow);
+
+  --mode-color:  var(--brutalist);
+  --mode-wash:   var(--brutalist-wash);
+  --mode-text:   var(--brutalist-text);
+  --mode-shadow: var(--shadow-glow-brutalist);
+}
+
 

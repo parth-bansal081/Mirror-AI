@@ -33,6 +33,7 @@ export function createMockAnna(): AnnaSDK {
             { tool_id: 'mirror-decision-critic', display_name: "Devil's Advocate" },
             { tool_id: 'mirror-agent-supervisor', display_name: 'Agent Babysitter' },
             { tool_id: 'bundled:project-genesis', display_name: 'Project Genesis' },
+            { tool_id: 'bundled:doc-brutalist', display_name: 'Doc Brutalist' },
           ],
         };
       },
@@ -412,6 +413,94 @@ export function createMockAnna(): AnnaSDK {
                   "RULES": `# ${name} — Agent Rules\n\n## 1. Strict Typing\nEnsure no any types are introduced.\n`
                 }
               }
+            };
+          }
+        }
+
+        if (tool_id.includes('doc-brutalist')) {
+          if (method === 'analyze_docs') {
+            const docContent = args.doc_content as string || '';
+            const targetUser = args.target_user as string || 'Developer';
+            const fiveMinuteGoal = args.five_minute_goal as string || 'Install and run';
+            
+            return {
+              success: true,
+              data: {
+                clarity_score: 34,
+                clarity_verdict: "Your documentation makes huge assumptions and acts like the user already wrote the tool.",
+                estimated_user_failure_rate: "7 out of 10 first-time users will fail",
+                issues: [
+                  {
+                    id: "issue_1",
+                    type: "FIRST_PARAGRAPH",
+                    location: docContent.split('\n')[0] || "My Awesome Tool",
+                    problem: "First paragraph fails to state what the tool actually accomplishes for the reader.",
+                    fix: "Rewrite to explain what it does, how it works, and who it is for in under 3 sentences.",
+                    severity: "HIGH",
+                    drop_off_weight: 9
+                  },
+                  {
+                    id: "issue_2",
+                    type: "MISSING_PREREQ",
+                    location: "Run: npm install my-tool",
+                    problem: "Assumes Node.js is pre-installed. Many technical/non-technical readers won't have it ready.",
+                    fix: "Add a prerequisites subsection listing required tools like Node.js 18+.",
+                    severity: "HIGH",
+                    drop_off_weight: 8
+                  },
+                  {
+                    id: "issue_3",
+                    type: "JARGON",
+                    location: "enterprise-grade performance",
+                    problem: "Uses buzzwords like 'enterprise-grade' which offer no concrete technical context.",
+                    fix: "Replace with specific performance metrics or simple descriptive terms.",
+                    severity: "MEDIUM",
+                    drop_off_weight: 5
+                  }
+                ],
+                missing_sections: ["Prerequisites", "Expected Command Output", "Troubleshooting"],
+                top_3_fixes: [
+                  "Define user pre-requisites before installation commands",
+                  "Explain the tool vision without marketing buzzwords",
+                  "Provide copy-pasteable first run command with expected results"
+                ],
+                first_paragraph_verdict: "Very poor. It lists claims instead of functionality.",
+                time_to_first_success: "Users will fail within 45 seconds at the npm install step due to lack of environment details."
+              }
+            };
+          }
+          if (method === 'generate_rewrite') {
+            return {
+              success: true,
+              data: `# Project Documentation (Brutalist Approved)
+
+A command-line tool that automates system tasks from a single config file. 
+
+## Prerequisites
+- Node.js 18.0 or higher
+- Terminal access (PowerShell on Windows, bash on Mac/Linux)
+
+## Installation
+\`\`\`bash
+npm install -g my-tool
+my-tool --version
+# Should print: 1.0.0
+\`\`\`
+
+## Quick Start (Under 5 minutes)
+1. Initialize the config:
+   \`\`\`bash
+   my-tool init
+   \`\`\`
+2. Run your first task:
+   \`\`\`bash
+   my-tool run
+   \`\`\`
+   *Expected output:* \`[my-tool] Running tasks... Success in 12ms\`
+
+## Troubleshooting
+- **"command not found"**: Restart your terminal and verify npm global path is configured.
+`
             };
           }
         }

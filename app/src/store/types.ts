@@ -17,7 +17,7 @@ export type ReviewMark = 'valid' | 'overblown' | 'not_applicable' | 'unreviewed'
 
 export type RiskLevel = 'low' | 'medium' | 'high' | 'irreversible';
 
-export type ModeType = 'archaeology' | 'advocate' | 'babysitter' | 'learning' | 'profile' | 'genesis';
+export type ModeType = 'archaeology' | 'advocate' | 'babysitter' | 'learning' | 'profile' | 'genesis' | 'doc-brutalist';
 
 export type DecisionType =
   | 'technical' | 'career' | 'business' | 'financial' | 'personal' | 'other';
@@ -347,6 +347,7 @@ export interface AppState {
   currentAgentSession: Partial<AgentSession> | null;
   currentLearningSession: Partial<LearningProgress> | null;
   currentGenesisSession: Partial<GenesisSession> | null;
+  currentBrutalistSession: Partial<BrutalistSession> | null;
   activeMode: ModeType;
   isAnalyzing: boolean;
   analysisStep: number;
@@ -468,4 +469,29 @@ export interface GenesisSession {
   documents: Record<string, string> | null;
   product_name: string;
 }
+
+// ── Doc Brutalist schemas ───────────────────
+export interface Issue {
+  id: string;
+  type: string;
+  location: string;
+  problem: string;
+  fix: string;
+  severity: 'HIGH' | 'MEDIUM' | 'LOW';
+  drop_off_weight: number;
+}
+
+export interface BrutalistSession {
+  id: string;
+  date: string;
+  doc_title: string;        // first heading or "Untitled"
+  target_user: string;
+  original_clarity_score: number;
+  final_clarity_score: number;   // recalculated after confirmed fixes
+  issues_found: number;
+  issues_confirmed: number;
+  issues_fixed: number;
+  downloaded: boolean;
+}
+
 

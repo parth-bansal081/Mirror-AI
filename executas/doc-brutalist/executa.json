@@ -1,0 +1,14 @@
+{
+  "slug": "doc-brutalist",
+  "name": "Mirror Doc Brutalist",
+  "version": "1.0.0",
+  "executa_type": "tool",
+  "tool_id": "bundled:doc-brutalist",
+  "type": "python",
+  "enabled": true,
+  "distribution": {
+    "profiles": {
+      "local": { "type": "local" }
+    }
+  }
+}

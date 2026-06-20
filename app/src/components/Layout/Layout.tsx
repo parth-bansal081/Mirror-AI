@@ -8,6 +8,7 @@ import BackgroundOrbs from './BackgroundOrbs';
 import { useProfileStore } from '../../store/profileStore';
 import Dashboard from '../../modes/Dashboard';
 import ProjectGenesis from '../../modes/ProjectGenesis';
+import DocBrutalist from '../../modes/DocBrutalist';
 import PromptArchaeology from '../../modes/PromptArchaeology';
 import DevilsAdvocate from '../../modes/DevilsAdvocate';
 import AgentBabysitter from '../../modes/AgentBabysitter';
@@ -23,6 +24,7 @@ const PATH_TO_MODE: Record<string, string> = {
   '/advocate':    'advocate',
   '/babysitter':  'babysitter',
   '/learning':    'learning',
+  '/doc-brutalist': 'doc-brutalist',
   '/profile':     'profile',
 };
 
@@ -34,6 +36,11 @@ export default function Layout() {
   useEffect(() => {
     const mode = PATH_TO_MODE[location.pathname] || 'dashboard';
     document.body.setAttribute('data-mode', mode);
+    if (mode === 'doc-brutalist') {
+      document.body.classList.add('mode-brutalist');
+    } else {
+      document.body.classList.remove('mode-brutalist');
+    }
   }, [location.pathname]);
 
   if (!profileLoaded) {
@@ -64,6 +71,7 @@ export default function Layout() {
               <Routes location={location}>
                 <Route path="/" element={<Navigate to="/genesis" replace />} />
                 <Route path="/genesis" element={<ProjectGenesis />} />
+                <Route path="/doc-brutalist" element={<DocBrutalist />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/archaeology" element={<PromptArchaeology />} />
                 <Route path="/advocate" element={<DevilsAdvocate />} />

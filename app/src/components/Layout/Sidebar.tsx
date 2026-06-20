@@ -77,6 +77,16 @@ function GenesisIcon() {
   );
 }
 
+function BrutalistIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="6" y1="18" x2="18" y2="6" />
+      <path d="M12 6h6v6" />
+      <path d="M12 18H6v-6" />
+    </svg>
+  );
+}
+
 const NAV_ITEMS: NavItem[] = [
   { path: '/dashboard',   label: 'Dashboard',           icon: <DashboardIcon /> },
   { path: '/genesis',     label: 'Project Genesis',     icon: <GenesisIcon /> },
@@ -84,6 +94,7 @@ const NAV_ITEMS: NavItem[] = [
   { path: '/advocate',    label: "Devil's Advocate",    icon: <AdvocateIcon /> },
   { path: '/babysitter',  label: 'Agent Babysitter',    icon: <BabysitterIcon /> },
   { path: '/learning',    label: 'Learning Path',       icon: <LearningPathIcon /> },
+  { path: '/doc-brutalist', label: 'Doc Brutalist',      icon: <BrutalistIcon /> },
 ];
 
 export default function Sidebar() {
@@ -113,6 +124,8 @@ export default function Sidebar() {
               let classes = `${styles.navItem} ${isActive ? styles.navItemActive : ''}`;
               if (item.path === '/genesis') {
                 classes += ` ${styles.genesisNavItem} ${isActive ? styles.genesisNavItemActive : ''}`;
+              } else if (item.path === '/doc-brutalist') {
+                classes += ` ${styles.brutalistNavItem} ${isActive ? styles.brutalistNavItemActive : ''}`;
               }
               return classes;
             }}
