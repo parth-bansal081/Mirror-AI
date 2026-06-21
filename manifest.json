@@ -6,10 +6,12 @@
     "storage.write"
   ],
   "required_executas": [
-    { "tool_id": "bundled:prompt-analyzer", "min_version": "1.0.0" },
-    { "tool_id": "bundled:decision-critic", "min_version": "1.0.0" },
-    { "tool_id": "bundled:agent-supervisor", "min_version": "1.0.0" },
-    { "tool_id": "bundled:learning-path", "min_version": "1.0.0" }
+    { "tool_id": "tool-parthbansal20-5851-prompt-analyzer-m9fex7sf", "min_version": "1.0.0" },
+    { "tool_id": "tool-parthbansal20-5851-decision-critic-b2r4yr54", "min_version": "1.0.0" },
+    { "tool_id": "tool-parthbansal20-5851-agent-supervisor-76y2kr8r", "min_version": "1.0.0" },
+    { "tool_id": "tool-parthbansal20-5851-learning-path-wyh42drj", "min_version": "1.0.0" },
+    { "tool_id": "tool-parthbansal20-5851-doc-brutalist-b4fkzsrj", "min_version": "1.0.0" },
+    { "tool_id": "tool-parthbansal20-5851-project-genesis-8rfxrwge", "min_version": "1.0.0" }
   ],
   "ui": {
     "bundle": { "format": "static-spa", "entry": "index.html" },

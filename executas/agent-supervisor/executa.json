@@ -3,16 +3,7 @@
   "name": "Mirror Agent Supervisor",
   "version": "1.0.0",
   "executa_type": "tool",
-  "tool_id": "mirror-agent-supervisor",
+  "tool_id": "tool-parthbansal20-5851-agent-supervisor-76y2kr8r",
   "type": "python",
-  "enabled": true,
-  "distribution": {
-    "active": "local",
-    "profiles": {
-      "local": {
-        "type": "local",
-        "supports_protocol": true
-      }
-    }
-  }
+  "enabled": true
 }

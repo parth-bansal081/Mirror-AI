@@ -1,0 +1,9 @@
+{
+  "$schema": "anna-executa-identity/v1",
+  "host": "https://anna.partners",
+  "executa_id": 1041,
+  "tool_id": "tool-parthbansal20-5851-doc-brutalist-b4fkzsrj",
+  "slug": "doc-brutalist",
+  "executa_type": "tool",
+  "first_published_at": "2026-06-20T11:20:10.943Z"
+}

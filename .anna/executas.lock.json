@@ -5,22 +5,32 @@
     "prompt-analyzer": {
       "tool_id": "tool-parthbansal20-5851-prompt-analyzer-m9fex7sf",
       "path": "./executas/prompt-analyzer",
-      "source": "published"
+      "source": "cut"
     },
     "decision-critic": {
       "tool_id": "tool-parthbansal20-5851-decision-critic-b2r4yr54",
       "path": "./executas/decision-critic",
-      "source": "published"
+      "source": "cut"
     },
     "agent-supervisor": {
       "tool_id": "tool-parthbansal20-5851-agent-supervisor-76y2kr8r",
       "path": "./executas/agent-supervisor",
-      "source": "published"
+      "source": "cut"
     },
     "learning-path": {
       "tool_id": "tool-parthbansal20-5851-learning-path-wyh42drj",
       "path": "./executas/learning-path",
-      "source": "published"
+      "source": "cut"
+    },
+    "doc-brutalist": {
+      "tool_id": "tool-parthbansal20-5851-doc-brutalist-b4fkzsrj",
+      "path": "./executas/doc-brutalist",
+      "source": "cut"
+    },
+    "project-genesis": {
+      "tool_id": "tool-parthbansal20-5851-project-genesis-8rfxrwge",
+      "path": "./executas/project-genesis",
+      "source": "cut"
     }
   }
 }

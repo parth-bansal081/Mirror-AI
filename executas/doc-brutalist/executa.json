@@ -3,12 +3,7 @@
   "name": "Mirror Doc Brutalist",
   "version": "1.0.0",
   "executa_type": "tool",
-  "tool_id": "bundled:doc-brutalist",
+  "tool_id": "tool-parthbansal20-5851-doc-brutalist-b4fkzsrj",
   "type": "python",
-  "enabled": true,
-  "distribution": {
-    "profiles": {
-      "local": { "type": "local" }
-    }
-  }
+  "enabled": true
 }

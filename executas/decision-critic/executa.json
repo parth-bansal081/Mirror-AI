@@ -3,16 +3,7 @@
   "name": "Mirror Decision Critic",
   "version": "1.0.0",
   "executa_type": "tool",
-  "tool_id": "mirror-decision-critic",
+  "tool_id": "tool-parthbansal20-5851-decision-critic-b2r4yr54",
   "type": "python",
-  "enabled": true,
-  "distribution": {
-    "active": "local",
-    "profiles": {
-      "local": {
-        "type": "local",
-        "supports_protocol": true
-      }
-    }
-  }
+  "enabled": true
 }

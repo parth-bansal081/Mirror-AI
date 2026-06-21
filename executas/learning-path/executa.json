@@ -3,16 +3,7 @@
   "name": "Mirror Learning Path",
   "version": "1.0.0",
   "executa_type": "tool",
-  "tool_id": "bundled-learning-path",
+  "tool_id": "tool-parthbansal20-5851-learning-path-wyh42drj",
   "type": "python",
-  "enabled": true,
-  "distribution": {
-    "active": "local",
-    "profiles": {
-      "local": {
-        "type": "local",
-        "supports_protocol": true
-      }
-    }
-  }
+  "enabled": true
 }
