@@ -1,5 +1,5 @@
 [project]
-name = "bundled:doc-brutalist"
+name = "doc-brutalist"
 version = "1.0.0"
 requires-python = ">=3.11"
 dependencies = ["httpx>=0.27.0"]
@@ -7,3 +7,9 @@ dependencies = ["httpx>=0.27.0"]
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[project.scripts]
+tool-parthbansal20-5851-doc-brutalist-b4fkzsrj = "doc_brutalist_plugin:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
