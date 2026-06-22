@@ -19,7 +19,7 @@ from typing import Any
 # Config
 # ---------------------------------------------------------------------------
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
-GEMINI_MODEL = "gemini-2.5-flash"
+GEMINI_MODEL = "gemini-flash-latest"
 GEMINI_API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent"
 MAX_TOKENS = 8192
 TIMEOUT = 180.0
@@ -30,7 +30,7 @@ TIMEOUT = 180.0
 MANIFEST: dict[str, Any] = {
     "name": "bundled:project-genesis",
     "display_name": "Mirror Project Genesis",
-    "version": "1.0.0",
+    "version": "1.0.3",
     "description": "Turns any developer idea into 8 production-ready build documents.",
     "author": "Mirror",
     "license": "MIT",
@@ -277,12 +277,10 @@ Generate a complete, elaborate, production-grade {doc_type} document for this pr
 CRITICAL RULES — NEVER VIOLATE THESE:
 1. NEVER echo back what the user said. Expand every point into full detail.
 2. Make architectural decisions the spec didn't specify — good engineers do this automatically.
-3. Every major section must be 3-5 paragraphs minimum, not bullet points alone.
-4. Include things the user didn't mention but that any production app needs.
-5. Be brutally specific: real package names with versions, real file paths, real function names.
-6. No placeholders. No "TBD". No "[insert X here]". Every field filled with real content.
-7. Minimum 1000 words. Longer is better. This document must be exhaustive.
-8. Write as if this document will be read by a developer who has never spoken to anyone about this project — it must be 100% self-contained.
+3. Include things the user didn't mention but that any production app needs.
+4. Be brutally specific: real package names with versions, real file paths, real function names.
+5. No placeholders. No "TBD". No "[insert X here]". Every field filled with real content.
+6. Write as if this document will be read by a developer who has never spoken to anyone about this project — it must be 100% self-contained.
 
 {doc_specific_prompt}
 
@@ -293,7 +291,10 @@ Start directly with the # heading."""
 # ---------------------------------------------------------------------------
 # The 8 document-specific prompts (from GENESIS_PROMPT_OVERHAUL.md)
 # ---------------------------------------------------------------------------
-PRD_PROMPT = """Generate a Product Requirements Document with these MANDATORY sections, each elaborately filled:
+PRD_PROMPT = """Generate a Product Requirements Document with these MANDATORY sections, each elaborately filled.
+CRITICAL FORMAT RULES:
+- Minimum 1000 words. Longer is better. This document must be exhaustive.
+- Every major section must be 3-5 paragraphs minimum, not bullet points alone.
 
 # [Product Name] — Product Requirements Document
 Version: 1.0.0 | Status: Active | Owner: Solo Developer
@@ -355,7 +356,10 @@ List 3-5 genuine open questions that need resolution before or during developmen
 with a suggested approach for each."""
 
 
-TECH_SPEC_PROMPT = """Generate a Technical Specification with these MANDATORY sections:
+TECH_SPEC_PROMPT = """Generate a Technical Specification with these MANDATORY sections.
+CRITICAL FORMAT RULES:
+- Minimum 1000 words. Longer is better. This document must be exhaustive.
+- Every major section must be 3-5 paragraphs minimum, not bullet points alone.
 
 # [Product Name] — Technical Specification
 Version: 1.0.0 | Stack: [inferred from spec]
@@ -1110,51 +1114,58 @@ def validate_spec(brief: str, answers: dict[str, str]) -> dict[str, Any]:
 
 def generate_documents(spec: dict[str, Any]) -> dict[str, Any]:
     spec_json = json.dumps(spec, indent=2)
-    doc_order = ["PRD", "TECH_SPEC", "APP_FLOW", "DESIGN", "SCHEMA", "IMPLEMENTATION_PLAN", "TRACKER", "RULES"]
     docs: dict[str, str] = {}
 
-    for doc_type in doc_order:
-        # Build a rolling summary of previously generated docs for consistency
-        if docs:
-            previous_docs_summary = "\n".join([
-                f"=== {k} (first 800 chars) ===\n{v[:800]}\n"
-                for k, v in docs.items()
-            ])
-        else:
-            previous_docs_summary = "None yet — this is the first document."
+    system_prompt = (
+        "You are a principal software architect and senior technical writer with 15 years of experience shipping production software.\n"
+        "Your task is to generate 8 complete, elaborate, production-grade build documents for a project based on its specification.\n\n"
+        "You MUST return a valid JSON object matching exactly this schema:\n"
+        "{\n"
+        '  "PRD": "Product Requirements Document markdown content",\n'
+        '  "TECH_SPEC": "Technical Specification markdown content",\n'
+        '  "APP_FLOW": "App Flow Diagram markdown content",\n'
+        '  "DESIGN": "Design System markdown content",\n'
+        '  "SCHEMA": "Data Schema markdown content",\n'
+        '  "IMPLEMENTATION_PLAN": "Implementation Plan markdown content",\n'
+        '  "TRACKER": "Build Tracker Checklist markdown content",\n'
+        '  "RULES": "Agent Code Enforcement Rules markdown content"\n'
+        "}\n\n"
+        "Start the JSON with { and end with }. Do not wrap in markdown code blocks or return extra text. Return ONLY the raw JSON."
+    )
 
-        # Build the full system prompt using the new elaborate base
-        system_prompt = GENERATE_PROMPT_BASE.format(
-            doc_type=doc_type,
-            spec_json=spec_json,
-            previous_docs_summary=previous_docs_summary,
-            doc_specific_prompt=DOC_PROMPTS[doc_type],
-        )
+    user_message = (
+        f"Generate all 8 build documents for the project '{spec.get('product_name', 'this project')}' based on the specification below:\n\n"
+        f"PROJECT SPECIFICATION:\n{spec_json}\n\n"
+        "CRITICAL INSTRUCTIONS FOR DOCUMENTS:\n"
+        f"1. PRD (Product Requirements Document):\n{DOC_PROMPTS['PRD']}\n\n"
+        f"2. TECH_SPEC (Technical Specification):\n{DOC_PROMPTS['TECH_SPEC']}\n\n"
+        f"3. APP_FLOW (App Flow Chart):\n{DOC_PROMPTS['APP_FLOW']}\n\n"
+        f"4. DESIGN (Design System):\n{DOC_PROMPTS['DESIGN']}\n\n"
+        f"5. SCHEMA (Database Schema & Types):\n{DOC_PROMPTS['SCHEMA']}\n\n"
+        f"6. IMPLEMENTATION_PLAN (Phase Plan):\n{DOC_PROMPTS['IMPLEMENTATION_PLAN']}\n\n"
+        f"7. TRACKER (Build Checklist):\n{DOC_PROMPTS['TRACKER']}\n\n"
+        f"8. RULES (Agent Rules):\n{DOC_PROMPTS['RULES']}\n\n"
+        "Remember:\n"
+        "- PRD and TECH_SPEC must be exhaustive and detailed (aim for 1,000+ words).\n"
+        "- Other documents must be clean, concise, and copy-paste ready.\n"
+        "- Absolutely NO TBD or placeholders. Write real content.\n"
+    )
 
-        # User message reinforces length and quality expectations
-        user_message = (
-            f"Generate the complete {doc_type} document for "
-            f"{spec.get('product_name', 'this project')}.\n\n"
-            "Remember:\n"
-            "- Minimum 1000 words\n"
-            "- Every section fully elaborated with 3-5 paragraphs minimum\n"
-            "- Real specific values — no placeholders, no TBD\n"
-            "- Include things the spec didn't mention but that any good engineer would add\n"
-            "- Make this document so complete that a developer who never spoke to anyone "
-            "about this project could build it exactly from this document alone\n\n"
-            "Start generating now. Be exhaustive. Be specific. Be excellent."
-        )
-
-        if not GEMINI_API_KEY:
-            # Mock fallback
+    if not GEMINI_API_KEY:
+        # Mock fallback
+        for doc_type in ["PRD", "TECH_SPEC", "APP_FLOW", "DESIGN", "SCHEMA", "IMPLEMENTATION_PLAN", "TRACKER", "RULES"]:
             docs[doc_type] = (
                 f"# {spec.get('product_name', 'Project')} — {doc_type}\n\n"
                 f"*Mock content for {doc_type}. Connect Gemini API for real generation.*\n\n"
                 f"Spec: {spec.get('one_liner', '')}\n"
             )
-        else:
-            content = _call_gemini(system_prompt, user_message, json_mode=False)
-            docs[doc_type] = content
+    else:
+        # Call Gemini in JSON mode
+        content = _call_gemini(system_prompt, user_message, json_mode=True)
+        # Parse the JSON response
+        result = _parse_json(content, system_prompt, user_message)
+        for doc_type in ["PRD", "TECH_SPEC", "APP_FLOW", "DESIGN", "SCHEMA", "IMPLEMENTATION_PLAN", "TRACKER", "RULES"]:
+            docs[doc_type] = result.get(doc_type, f"# {spec.get('product_name', 'Project')} — {doc_type}\n\nFailed to generate content.")
 
     return {
         "documents": docs,

@@ -1,6 +1,6 @@
 [project]
 name = "project-genesis"
-version = "1.0.0"
+version = "1.0.3"
 requires-python = ">=3.11"
 dependencies = ["httpx>=0.27.0"]
 
